@@ -1,13 +1,17 @@
-﻿using Microsoft.Azure.Functions.Extensions.DependencyInjection;
-using System;
+﻿using ClienteScore.MAG.Servicos;
+using ClienteScoreMAG.Dominio.Interfaces;
+using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace ClienteScore.MAG
+[assembly: FunctionsStartup(typeof(ClienteScoreMAG.Startup))]
+
+namespace ClienteScoreMAG
 {
     public class Startup : FunctionsStartup
     {
         public override void Configure(IFunctionsHostBuilder builder)
         {
-            throw new NotImplementedException();
+            builder.Services.AddScoped<IEmailServico, EmailServico>();
         }
     }
 }
