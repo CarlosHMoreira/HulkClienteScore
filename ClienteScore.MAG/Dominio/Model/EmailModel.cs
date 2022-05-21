@@ -12,5 +12,6 @@
         public string NomeDestinatario { get; set; }
         public string Assunto { get; set; }
         public string EmailDeDestino { get; set; }
+        public string Mensagem { get; set; }
     }
 }
