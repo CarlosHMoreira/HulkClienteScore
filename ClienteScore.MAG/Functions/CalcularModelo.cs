@@ -23,6 +23,7 @@ namespace ClienteScoreMAG.Functions
             ILogger log)
         {
 
+
             if (cognitivo == default) return new BadRequestResult();
 
             var result = await _modeloService.CalcularModelo(cognitivo);

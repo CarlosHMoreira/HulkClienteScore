@@ -1,6 +1,7 @@
 ﻿
 using ClienteScoreMAG.Dominio.Interfaces;
 using ClienteScoreMAG.Dominio.Model;
+using System;
 using System.Threading.Tasks;
 
 namespace ClienteScoreMAG.Servicos
@@ -16,7 +17,7 @@ namespace ClienteScoreMAG.Servicos
 
         public Task<bool> CalcularModelo(CognitivoSentimento cognitivo)
         {
-            
+            throw new NotImplementedException();
         }              
     }
 }
