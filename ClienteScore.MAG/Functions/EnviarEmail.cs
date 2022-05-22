@@ -25,7 +25,7 @@ namespace ClienteScoreMAG.Functions
             if (dadosEmail.Assunto == null || dadosEmail.EmailDeDestino == null || dadosEmail.NomeDestinatario == null)
                 return new BadRequestResult();
 
-            _emailServico.EnviarEmail(dadosEmail.EmailDeDestino, dadosEmail.NomeDestinatario, dadosEmail.Assunto);
+            _emailServico.EnviarEmail(dadosEmail.EmailDeDestino, dadosEmail.NomeDestinatario, dadosEmail.Assunto, dadosEmail.Mensagem);
 
             return new OkResult();
         }
