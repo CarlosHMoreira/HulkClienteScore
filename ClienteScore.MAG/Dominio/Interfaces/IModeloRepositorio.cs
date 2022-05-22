@@ -1,9 +1,10 @@
 ﻿using ClienteScoreMAG.Dominio.Model;
+using System.Threading.Tasks;
 
 namespace ClienteScoreMAG.Dominio.Interfaces
 {
     public interface IModeloRepositorio
     {
-        bool SalvarModelo(Proponente proponente);
+        Task<bool> SalvarModelo(Proponente proponente);
     }
 }

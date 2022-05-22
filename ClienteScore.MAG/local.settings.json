@@ -3,6 +3,8 @@
   "ConnectionStrings": {
     "ClienteScore": "Server=tcp:clientcasesdbserverdev.database.windows.net,1433;Initial Catalog=clientcaseshulkdev;Persist Security Info=False;User ID=hulk;Password=H1lk@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
   },
-  "TEXT_ANALYTICS_ENDPOINT": "https://analisedetextomag.cognitiveservices.azure.com",
-  "TEXT_ANALYTICS_SUBSCRIPTION_KEY": "db31f8a7db3a43bc870b5a75ad45fd2a"
+  "Values": {
+    "TEXT_ANALYTICS_ENDPOINT": "https://analisedetextomag.cognitiveservices.azure.com",
+    "TEXT_ANALYTICS_SUBSCRIPTION_KEY": "db31f8a7db3a43bc870b5a75ad45fd2a"
+  }
 }

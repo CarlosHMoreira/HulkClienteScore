@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using ClienteScore.MAG.Dominio;
 using ClienteScoreMAG.Servicos;
 using System;
+using ClienteScoreMAG.Dominio.Interfaces;
 
 namespace ClienteScoreMAG.Functions
 {
@@ -14,11 +15,15 @@ namespace ClienteScoreMAG.Functions
     {
         private readonly IClienteScoreRepositorio _clienteScoreRepositorio;
         private readonly AnalizadorSentimento _sentimento;
+        private readonly IModeloService _modeloService;
+        private readonly IEmailServico _emailServico;
 
-        public BuscarProponente(IClienteScoreRepositorio clienteScoreRepositorio, AnalizadorSentimento sentimento)
+        public BuscarProponente(IClienteScoreRepositorio clienteScoreRepositorio, AnalizadorSentimento sentimento, IModeloService modeloService, IEmailServico emailServico)
         {
             _clienteScoreRepositorio = clienteScoreRepositorio;
             _sentimento = sentimento;
+            _modeloService = modeloService;
+            _emailServico = emailServico;
         }
 
         [FunctionName("BuscarProponente")]
@@ -28,13 +33,12 @@ namespace ClienteScoreMAG.Functions
         {
             try
             {
-            var action = new RecuperarCasosDeCliente(_clienteScoreRepositorio);
+                var action = new RecuperarCasosDeCliente(_clienteScoreRepositorio);
+                var proponente = await action.ObterMotivos();
+                var documentos = new JsonMapper().CriarJson(proponente.casos);
+                var sentimentV3Prediction = await _sentimento.SentimentV3PreviewPredictAsync(documentos);
+                var result = await _modeloService.CalcularModelo(sentimentV3Prediction);
 
-            var proponente = await action.ObterMotivos();
-
-            var documentos = new JsonMapper().CriarJson(proponente.casos);
-
-            var sentimentV3Prediction =  _sentimento.SentimentV3PreviewPredictAsync(documentos).Result;
 
             }
             catch(Exception ex)
@@ -42,7 +46,7 @@ namespace ClienteScoreMAG.Functions
                 throw new Exception(ex.Message);
             }
 
-            return new OkObjectResult("");
+            return new OkResult();
         }
     }
 }

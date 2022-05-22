@@ -12,6 +12,6 @@ namespace ClienteScoreMAG.Dominio.Model
         public int Lenght { get; set; }
         public string Texto { get; set; }
         public IEnumerable<string> Alvos { get; set; }
-        public string Assessments { get; set; }
+        public IEnumerable<string> Assessments { get; set; }
     }
 }
