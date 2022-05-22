@@ -2,12 +2,12 @@
 using System;
 using System.Net;
 using System.Net.Mail;
+using System.Threading.Tasks;
 
 namespace ClienteScore.MAG.Servicos
 {
     public class EmailServico : IEmailServico
     {
-
         public void EnviarEmail(string emailDestino, string nomeDestinatario, string assunto, string mensagem)
         {
             try
