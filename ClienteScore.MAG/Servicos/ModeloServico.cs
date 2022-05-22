@@ -52,9 +52,10 @@ namespace ClienteScoreMAG.Servicos
             };
 
             await _repositorio.SalvarModelo(proponente);
+
             if (proponente.Motivos.Select(x => x.Nome.Equals("2ª VIA DE BOLETO")).FirstOrDefault())
             {
-                _emailServico.EnviarEmail("mateuscalabria@gmail.com", "Mateus Calabria Machado", "boleto", "Olá,\nComo requisitado, aqui está o número da sua segunda via do boleto, 34191.79001 01043.510047 91020.150008 8 89930026000\nPara mais pedidos semelhantes à esse temos o portal do cliente!\nNele você tem acesso imediato à muitas informações.\nAcesse já clicando nesse link: https://areadocliente.mongeralaegon.com.br");
+                _emailServico.EnviarEmail("abner.joia@c2es.com.br", "Mateus Calabria Machado", "boleto", "Olá,\nComo requisitado, aqui está o número da sua segunda via do boleto, \nPara mais pedidos semelhantes à esse temos o portal do cliente!\nNele você tem acesso imediato à muitas informações.\nAcesse já clicando nesse link: https://areadocliente.mongeralaegon.com.br");
             };
             return true;
         }
