@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "5WrOTRHh/JXX+wSUFsQ7sfcXA3zln634z5o6B9QY4AH2r/kI8xa6Hp0ctQRb+93J74LsaZLRN3bI2JcM16tt1A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\MarcosPauloMarquesCo\\Desktop\\HulkClienteScore\\modeloTeste-analiseTextoSentimento\\modeloTeste-analiseTextoSentimento.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\MarcosPauloMarquesCo\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.23\\microsoft.netcore.app.host.win-x64.3.1.23.nupkg.sha512"
+  ],
+  "logs": []
+}
