@@ -2,6 +2,8 @@
 using ClienteScore.MAG.Repositorios;
 using ClienteScore.MAG.Servicos;
 using ClienteScoreMAG.Dominio.Interfaces;
+using ClienteScoreMAG.Repositorios;
+using ClienteScoreMAG.Servicos;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,7 +21,11 @@ namespace ClienteScore.MAG
 
             builder.Services.Configure<IConfiguration>(configuration);
             builder.Services.AddScoped<IClienteScoreRepositorio, ClienteScoreRepositorio>();
+            builder.Services.AddScoped<IModeloRepositorio, ModeloRepositorio>();
             builder.Services.AddScoped<IEmailServico, EmailServico>();
+            builder.Services.AddScoped(typeof(AnalizadorSentimento));
+            builder.Services.AddScoped<IModeloService, ModeloServico>();
+
         }
     }
 }
